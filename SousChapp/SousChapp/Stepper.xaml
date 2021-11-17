@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="SousChapp.Stepper"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SousChapp"
+             mc:Ignorable="d" 
+             d:DesignHeight="333.792" d:DesignWidth="589.602">
+
+
+    <UserControl.Resources>
+        <!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect -->
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                            BorderThickness="0"
+                            Padding="4,2" 
+                            BorderBrush="DarkGray" 
+                            CornerRadius="3" 
+                            Background="{x:Null}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Cursor="Hand"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+        <Grid>
+        <Border Margin="53,47,109,71" BorderBrush="Black" BorderThickness="2">
+            <Grid Background="White">
+                <Label x:Name="ComingUpLabel" Content="Coming up: In a cup, beat 4 large eggs" HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="428" BorderBrush="Black" BorderThickness="2" Margin="0,180,0,0"/>
+                <TextBlock x:Name="StepTools" HorizontalAlignment="Left" Height="216" TextWrapping="Wrap" VerticalAlignment="Top" Width="143"><Run Text="Tools and Ingredients" TextDecorations="Underline"/><LineBreak/><Run TextDecorations="Underline"/><LineBreak/><Run Text="- 1 tbsp olive oil"/><LineBreak/><Run Text="- 1 medium pan"/></TextBlock>
+                <TextBlock x:Name="StepDetail" HorizontalAlignment="Left" Height="216" TextWrapping="Wrap" VerticalAlignment="Top" Width="285" FontSize="22" Margin="143,0,0,0"><Run Text="" TextDecorations="Underline"/><LineBreak/><Run Text="Step 1" TextDecorations="Underline"/><LineBreak/><Run Text="Heat 1 table spoon of olive oil in a pan over medium heat"/></TextBlock>
+                <Border Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="0,0,0,36"/>
+            </Grid>
+        </Border>
+            <Button x:Name="MinimizeButton" HorizontalAlignment="Left" Height="20" Margin="559,47,0,0" VerticalAlignment="Top" Width="20" Click="MinimizeButton_Click">
+                <Image Source="Resources/minimize.png"/>
+            </Button>
+            <Button x:Name="prevButton" HorizontalAlignment="Left" Margin="157,283,0,0" VerticalAlignment="Top" Width="34" Height="34" Click="prevButton_Click" Style="{StaticResource MyButtonStyle}">
+                
+                <Image Source="Resources/Back Arrow.png"/>
+        </Button>
+            <Button x:Name="FinishButton" Content="Finish" HorizontalAlignment="Left" Margin="306,283,0,0" VerticalAlignment="Top" Width="64" Height="34" Visibility="Hidden" Background="IndianRed" Click="finishButton_Click" />
+            <Button x:Name="NextButton" HorizontalAlignment="Left" Margin="306,283,0,0" VerticalAlignment="Top" Width="34" Height="34" Click="nextButton_Click" Style="{StaticResource MyButtonStyle}">
+            <Image Source="Resources/Forward Arrow.png"/>
+        </Button>
+
+    </Grid>
+    </Viewbox>
+</UserControl>

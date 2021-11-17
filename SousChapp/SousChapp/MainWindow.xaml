@@ -1,0 +1,152 @@
+﻿<Window x:Class="SousChapp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SousChapp"
+        mc:Ignorable="d"
+        Title="Sous-Chapp"
+        WindowState="Maximized"
+        WindowStyle="None">
+
+
+    <Viewbox StretchDirection="Both" Stretch="Uniform" Width="{Binding ActualWidth, 
+              RelativeSource = {RelativeSource AncestorType = {x:Type Window}}}" 
+             Height="{Binding ActualHeight, 
+              RelativeSource ={RelativeSource AncestorType = {x:Type Window}}}">
+
+        <Grid x:Name="mainGrid" Height="450" Width="800">
+
+
+            <Grid x:Name="recipeGrid" Height="392" VerticalAlignment="Bottom" Margin="0,0,0,-10" Grid.ColumnSpan="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,-6,5,0">
+                    <Canvas x:Name="recipeCanvas" Height="392" MouseDown="Canvas_MouseDown">
+                        <Button x:Name ="btnReset" Content="Reset all" Canvas.Left="655" Canvas.Top="25" Width="110" Click="btnReset_Click" Background="LightBlue" Visibility="Hidden"/>
+                        <!-- Filter information -->
+                        <TextBlock x:Name ="filter_ing" Height="23" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="2" Width="755" FontSize="10" FontStyle="Italic" Opacity="0.985"/>
+                        <TextBlock x:Name ="filter_cui" Height="23" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="25" Width="645" FontSize="10" FontStyle="Italic"/>
+                        <TextBlock x:Name ="filter_dif" Height="23" Canvas.Left="10" TextWrapping="Wrap" Text="" Canvas.Top="48" Width="755" FontSize="10" FontStyle="Italic"/>
+
+                        <!-- Inner grid for recipes comment -->
+                        <Grid x:Name="chocolatechipcookies" Margin="96,84,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/chocolatechipcookies.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Chocolate Chip Cookie" VerticalAlignment="Top" Height="57" Width="105" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+                        <Grid x:Name="frenchomelet" Margin="464,84,0,0" Height="118" Width="240" MouseDown="Image_MouseDown" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/frenchomelet.png" />
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="French Omelette" VerticalAlignment="Top" Height="57" Width="107" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="padthai" Margin="96,265,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/padthai.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Pad Thai" VerticalAlignment="Top" Height="28" Width="91" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="aglioeolio" Margin="464,265,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/aglioeolio.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Aglio E Olio" VerticalAlignment="Top" Height="57" Width="107" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="beansalad" Margin="96,446,0,0" Height="118" Width="240" MouseDown="Image_MouseDown" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/beansalad.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Broccoli Rabe and White Bean Salad" VerticalAlignment="Top" Height="60" Width="100" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="overnightoats" Margin="464,446,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/overnightoats.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Overnight Oats" VerticalAlignment="Top" Height="57" Width="107" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="honeysalmon" Margin="96,627,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/honeysalmon.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Honey Salmon" VerticalAlignment="Top" Height="57" Width="120" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="porkchops" Margin="464,627,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/porkchops.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Pork Chops" VerticalAlignment="Top" Height="57" Width="107" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+                        <Grid x:Name="lambburger" Margin="96,808,0,0" Height="118" Width="240" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/lambburger.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Lamb Burger" VerticalAlignment="Top" Height="57" Width="120" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+
+
+                        <Grid x:Name="quesadilla" Margin="464,808,0,0" Height="118" Width="240" MouseDown="Image_MouseDown" Visibility="Hidden">
+                            <Image HorizontalAlignment="Left" Height="118" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Source="Resources/quesadilla.png"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="125,27,0,0" TextWrapping="Wrap" Text="Quick Cheesy Quesadillas" VerticalAlignment="Top" Height="57" Width="107" TextAlignment="Center" FontSize="16"/>
+                        </Grid>
+                        <Rectangle x:Name="ChosenRecipe" HorizontalAlignment="Left" Height="118" Margin="464,84,0,0" VerticalAlignment="Top" Width="240" StrokeThickness="3" >
+                            <!--<Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#fd9f84" Offset="0"/>
+                    <GradientStop Color="#ff5b59" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>-->
+                        </Rectangle>
+                        <Button x:Name="ViewRecipeButton" Content="View Recipe" HorizontalAlignment="Left" Height="34" Margin="598,154,0,0" VerticalAlignment="Top" Width="88" Background="LimeGreen" Click="ViewRecipeButton_Click" Visibility="Hidden"/>
+
+
+
+                    </Canvas>
+                </ScrollViewer>
+            </Grid>
+
+            <Rectangle x:Name="header" HorizontalAlignment="Center" Height="42" Stroke="Black" VerticalAlignment="Top" Width="800" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                        <GradientStop Color="#fd9f84" Offset="1"/>
+                        <GradientStop Color="#FFDC4040"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.057"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Button x:Name="SearchSmall" HorizontalAlignment="Right" Height="23"  VerticalAlignment="Top" Width="24" Margin="10,10" Background="{x:Null}" BorderBrush="{x:Null}" Click="SearchSmall_Click">
+                <Image Source="Resources/search.png"/>
+            </Button>
+            <TextBox x:Name="SearchBox" HorizontalAlignment="Right" Height="19" Margin="58,10" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="116" Visibility="Hidden" GotFocus="SearchBox_GotFocus" LostFocus="SearchBox_LostFocus"/>
+            <Button x:Name="SearchLarge" Content="Search" HorizontalAlignment="Right" Margin="10,10" VerticalAlignment="Top" Width="44" Visibility="Hidden" Click="SearchLarge_Click"/>
+            <Button x:Name="OSKeyboard" HorizontalAlignment="Right" Height="19" Margin="178,10" VerticalAlignment="Top" Width="28" Visibility="Hidden" Click="OSKeyboard_Click">
+                <Image Source="Resources/keyboard.png"/>
+            </Button>
+            <Button x:Name="showMenu" HorizontalAlignment="Left" Margin="5,5" VerticalAlignment="Top" Width="27" Click="ShowMenu_Click" RenderTransformOrigin="0,0" Height="29" BorderBrush="{x:Null}" Background="#fd9f84" Foreground="{x:Null}">
+                <Image Source="Resources/menu.png"/>
+            </Button>
+
+            <Image HorizontalAlignment="Center" Height="28" Margin="0,7,0,0" VerticalAlignment="Top" Width="134" Source="Resources/Logo.png"/>
+            <TextBlock x:Name="viewSearch" HorizontalAlignment="Right" Margin="460,0,0,0" TextWrapping="Wrap" Text="matching results for: " VerticalAlignment="Top" FontFamily="Arial" FontSize="10" Visibility="Hidden" Width="263" FontStyle="Italic"/>
+
+
+            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="409" VerticalAlignment="Top" Width="165" Margin="0,41,0,0" Visibility="Visible" Grid.ColumnSpan="2">
+                <Menu.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#fd9f84" Offset="0"/>
+                        <GradientStop Color="#ff5b59" Offset="1"/>
+                    </LinearGradientBrush>
+                </Menu.Background>
+                <MenuItem x:Name="optIng" Header="Search by Ingredients" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" Click="OptIng_Click"/>
+                <MenuItem x:Name="optCui" Header="Search by Cuisine" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" Click="OptCui_Click"/>
+                <MenuItem x:Name="optDiff" Header="Search by Difficulty" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" Click="OptDiff_Click"/>
+                <MenuItem x:Name="optSplit" Header="Split" Height="40" Width="165" Click="Split_Screen"  MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" />
+
+                <MenuItem x:Name="optExit" Margin="0,200,0,0" Header="Exit" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" VerticalAlignment="Bottom" Click="OptExit_Click"/>
+            </Menu>
+
+            <local:IngFilter x:Name="IngFilterPopup" HorizontalAlignment="Left" Height="475" Margin="0,-32,-21,-24" VerticalAlignment="Top" Width="813" Visibility="Hidden" Grid.ColumnSpan="2"/>
+            <local:CuiFilter x:Name="CuiFilterPopup" HorizontalAlignment="Left" Height="475" Margin="0,-32,-21,-24" VerticalAlignment="Top" Width="813" Visibility="Hidden" Grid.ColumnSpan="2"/>
+            <local:DiffFilter x:Name="DiffFilterPopup" HorizontalAlignment="Left" Height="475" Margin="0,-32,-21,-24" VerticalAlignment="Top" Width="813" Visibility="Hidden" Grid.ColumnSpan="2"/>
+
+
+        </Grid>
+    </Viewbox>
+
+
+</Window>

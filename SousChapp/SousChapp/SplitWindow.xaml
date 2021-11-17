@@ -1,0 +1,97 @@
+﻿<Window x:Class="SousChapp.SplitWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SousChapp"
+        mc:Ignorable="d"
+        Title="Sous-Chapp" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="798" Stroke="Black" VerticalAlignment="Top" Width="30" Margin="382,-385,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#fd9f84" Offset="1"/>
+                    <GradientStop Color="#FFDC4040"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Grid Grid.Column="0">
+            <ScrollBar HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,29,0,0"/>
+            <Button x:Name="SearchSmall1" HorizontalAlignment="Right" Height="23" Margin="0,5,5,0" VerticalAlignment="Top" Width="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="search.png"/>
+            </Button>
+            <Button x:Name="showMenu1" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="27" Height="29" Click="ShowMenu_Click" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="menu.png"/>
+            </Button>
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,70,0,0">
+                <Grid>
+                    <Image HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="120" Source="chocolatechipcookies.png"/>
+                    <TextBox HorizontalAlignment="Left" Height="118" Margin="120,0,0,0" TextWrapping="Wrap" Text="&#xA;Chocolate Chip Cookies" VerticalAlignment="Top" Width="120" FontSize="16" TextAlignment="Center"/>
+
+                </Grid>
+            </Border>
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,235,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="43*"/>
+                        <RowDefinition Height="75*"/>
+                    </Grid.RowDefinitions>
+                    <Image HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="120" Source="padthai.png" Grid.RowSpan="2"/>
+                    <TextBox HorizontalAlignment="Left" Height="118" Margin="120,0,0,0" TextWrapping="Wrap" Text="&#xA;&#xA;Pad Thai" VerticalAlignment="Top" Width="120" FontSize="16" TextAlignment="Center" Grid.RowSpan="2"/>
+
+                </Grid>
+            </Border>
+
+            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="175" Margin="0,29,0,0" Visibility="Hidden">
+                <Menu.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#fd9f84" Offset="0"/>
+                        <GradientStop Color="#ff5b59" Offset="1"/>
+                    </LinearGradientBrush>
+                </Menu.Background>
+                <MenuItem x:Name="optIng" Header="Search by Ingredients" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White"/>
+                <MenuItem x:Name="optCui" Header="Search by Cuisine" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White"/>
+                <MenuItem x:Name="optDiff" Header="Search by Difficulty" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White"/>
+                <MenuItem x:Name="optExit" Header="Exit" Height="40" Width="165" MouseEnter="MenuMouseEnter" MouseLeave="MenuMouseLeave" Foreground="White" />
+
+            </Menu>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <ScrollBar HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,29,0,0"/>
+            <Button x:Name="SearchSmall2" HorizontalAlignment="Right" Height="23" Margin="0,5,5,0" VerticalAlignment="Top" Width="24" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="search.png"/>
+            </Button>
+            <Button x:Name="showMenu2" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="27" Height="29" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+                <Image Source="menu.png"/>
+            </Button>
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,70,0,0">
+                <Grid>
+                    <TextBox HorizontalAlignment="Left" Height="118" TextWrapping="Wrap" Text="&#xA;&#xA;French Omelette" VerticalAlignment="Top" Width="120" FontSize="16" TextAlignment="Center" Margin="120,0,-120,0"/>
+                    <Image HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="120" Source="frenchomelet.png"/>
+                </Grid>
+            </Border>
+
+            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,235,0,0">
+                <Grid>
+                    <TextBox HorizontalAlignment="Left" Height="118" TextWrapping="Wrap" Text="&#xA;&#xA;Aglio E Olio" VerticalAlignment="Top" Width="120" FontSize="16" TextAlignment="Center" Margin="120,0,-120,0"/>
+                    <Image HorizontalAlignment="Left" Height="118" VerticalAlignment="Top" Width="120" Source="aglioeolio.png"/>
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>

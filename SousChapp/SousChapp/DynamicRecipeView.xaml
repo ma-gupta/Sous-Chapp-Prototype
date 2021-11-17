@@ -1,0 +1,137 @@
+﻿<Window x:Class="SousChapp.DynamicRecipeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SousChapp"
+        mc:Ignorable="d"
+        Title="Sous-Chapp" Height="450" Width="800"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Viewbox StretchDirection="Both" Stretch="Uniform">
+
+        <Grid x:Name="mainGrid" Height="450" Width="800">
+
+
+            <Grid.Resources>
+                <Style x:Key="Blurred" TargetType="{x:Type Grid}">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <BlurEffect Radius="5"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+                <Style x:Key="Default" TargetType="{x:Type Grid}">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <BlurEffect Radius="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="9*"/>
+                <ColumnDefinition Width="191*"/>
+            </Grid.ColumnDefinitions>
+
+            <Rectangle x:Name="header" HorizontalAlignment="Center" Height="42" Stroke="Black" VerticalAlignment="Top" Width="800" Margin="0,0,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="1,0.5" MappingMode="RelativeToBoundingBox" StartPoint="0,0.5">
+                        <GradientStop Color="#fd9f84" Offset="1"/>
+                        <GradientStop Color="#FFDC4040"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.092"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+
+            <Image HorizontalAlignment="Center" Height="28" Margin="-50,7,0,0" VerticalAlignment="Top" Width="134" Source="Resources/Logo.png" Grid.Column="1"/>
+
+
+
+            <Grid x:Name="recipeGrid" HorizontalAlignment="Left" Height="385" Margin="0,50,0,0" VerticalAlignment="Top" Width="800" Grid.ColumnSpan="2">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,3,0,0">
+                    <Canvas x:Name ="recipeCanvas" Height="390"  Width="770">
+
+                        <Rectangle HorizontalAlignment="Left" Height="124" Margin="81,8,0,0" Stroke="Black" VerticalAlignment="Top" Width="591"/>
+
+
+                        <Rectangle HorizontalAlignment="Left" Height="60" Margin="23,141,0,0" VerticalAlignment="Top" Width="145" RadiusX="25" RadiusY="50">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFFD9F84" Offset="1"/>
+                                    <GradientStop Color="#FFDC4040"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+
+
+                        <Rectangle HorizontalAlignment="Left" Height="60" Margin="220,141,0,0" VerticalAlignment="Top" Width="145" RadiusX="25" RadiusY="50">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFFD9F84" Offset="1"/>
+                                    <GradientStop Color="#FFDC4040"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+                        <Rectangle HorizontalAlignment="Left" Height="60" Margin="504,141,0,0" VerticalAlignment="Top" Width="145" RadiusX="25" RadiusY="50">
+                            <Rectangle.Fill>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="#FFFD9F84" Offset="1"/>
+                                    <GradientStop Color="#FFDC4040"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+
+                        </Rectangle>
+
+
+
+                        <TextBlock x:Name="steps" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="174" Width="352" FontSize="14" FontFamily="Arial" TextAlignment="Left" Canvas.Left="401" Canvas.Top="206"><Run Text="" TextDecorations="Underline"/><LineBreak/></TextBlock>
+                        <TextBlock x:Name="ingredients" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="174" Width="188" FontSize="14" FontFamily="Arial" TextAlignment="Center" Canvas.Left="198" Canvas.Top="206"><Run Text="" TextDecorations="Underline" /><LineBreak/></TextBlock>
+                        <TextBlock x:Name="tools" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="174" Width="190" FontSize="14" FontFamily="Arial" TextAlignment="Center" Canvas.Top="206"><LineBreak/></TextBlock>
+                        <Image x:Name="recipeImage" HorizontalAlignment="Left" Height="100" Margin="90,21,0,0" VerticalAlignment="Top" Width="100"/>
+                        <Button x:Name="startButton" Content="Start cooking!" HorizontalAlignment="Left" Margin="504,47,0,0" VerticalAlignment="Top" Width="124" Height="46" Background="LimeGreen" Click="startButton_Click" Visibility="Visible"/>
+                        <TextBlock x:Name="recipeName" HorizontalAlignment="Left" Margin="220,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="21" Width="279" FontWeight="Bold" FontFamily="Arial" FontSize="14"/>
+                        <TextBlock x:Name="recipeCookingTime" HorizontalAlignment="Left" Margin="220,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="21" Width="279" FontFamily="Arial"/>
+                        <TextBlock x:Name="recipeServing" HorizontalAlignment="Left" Margin="220,73,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="21" Width="279" FontFamily="Arial"/>
+                        <TextBlock x:Name="recipeCatgories" HorizontalAlignment="Left" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="32" Width="443" FontFamily="Arial" Canvas.Left="220" Canvas.Top="100"/>
+                        <Button x:Name="contButton" Content="Continue Recipe" HorizontalAlignment="Left" Margin="504,19,0,0" VerticalAlignment="Top" Width="124" Height="46" Background="SteelBlue" Click="contButton_Click" Visibility="Hidden"/>
+                        <Button x:Name="cancelButton" Content="Cancel Recipe" HorizontalAlignment="Left" Margin="504,75,0,0" VerticalAlignment="Top" Width="124" Height="46" Background="IndianRed" Click="cancelButton_Click" Visibility="hidden"/>
+
+                        <TextBlock HorizontalAlignment="Left" Margin="70,160,0,0" TextWrapping="Wrap" Text="Tools" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="250,160,0,0" TextWrapping="Wrap" Text="Ingredients" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="White"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="553,160,0,0" TextWrapping="Wrap" Text="Steps" VerticalAlignment="Top" FontSize="20" FontFamily="Arial" Foreground="White"/>
+                        <Button  x:Name="BackBtn" HorizontalAlignment="Left" Height="27" Margin="10,15,0,0" VerticalAlignment="Top" Width="40" Click="backBtn_Click">
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image  Source="Resources/Back_btn.png" Cursor="Hand"/>
+                                </ControlTemplate>
+                            </Button.Template>
+
+                        </Button>
+
+                    </Canvas>
+                </ScrollViewer>
+            </Grid>
+
+
+
+            <local:Stepper x:Name="step" HorizontalAlignment="Left" Height="328" Margin="61.636,34,0,0" VerticalAlignment="Top" Width="580" Visibility="Hidden" Grid.Column="1"/>
+
+
+
+
+
+
+        </Grid>
+    </Viewbox>
+</Window>

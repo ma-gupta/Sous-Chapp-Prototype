@@ -1,0 +1,70 @@
+﻿<Window x:Class="SousChapp.RecipeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SousChapp"
+        mc:Ignorable="d"
+        Title="Sous-Chapp" Height="450" Width="800">
+    <Grid x:Name="mainGrid">
+        <Grid.Resources>
+            <Style x:Key="Blurred" TargetType="{x:Type Grid}">
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <BlurEffect Radius="5"/>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height= "40"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Left" Height="798" Stroke="Black" VerticalAlignment="Top" Width="30" Margin="184,-385,0,0" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="3">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#fd9f84" Offset="1"/>
+                    <GradientStop Color="#FFDC4040"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
+        <Button x:Name="showMenu" HorizontalAlignment="Left" Margin="0" VerticalAlignment="Top" Width="27" RenderTransformOrigin="-0.342,-0.861" Height="29" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Image Source="Resources/menu.png"/>
+        </Button>
+
+        <Label Grid.Row="0" Grid.ColumnSpan="3" x:Name="headLabel" Content="Sous Chapp" HorizontalAlignment="Left" Margin="351,0,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Bodoni MT" FontSize="20" Height="40"/>
+        <ScrollBar Grid.Column="2" Grid.RowSpan="3" HorizontalAlignment="Right" Margin="0,29,0,0" VerticalAlignment="Top" Height="390"/>
+        <Button x:Name="SearchSmall" HorizontalAlignment="Right" Height="23"  VerticalAlignment="Top" Width="24" Grid.Column="2" Margin="0,5,5,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}">
+            <Image Source="Resources/search.png"/>
+        </Button>
+        <Grid x:Name="recipeGrid" HorizontalAlignment="Left" Height="390" Margin="0,29,0,0" VerticalAlignment="Top" Width="770" Grid.ColumnSpan="3" Grid.RowSpan="3">
+            <TextBlock x:Name="steps" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="253" Width="379" Margin="391,137,0,0"><Run Text="Steps" TextDecorations="Underline"/><LineBreak/><Run Text="1. Heat 1 table spoon of olive oil in a pan over medium heat"/><LineBreak/><Run Text="2. In a cup, beat 4 large eggs"/><LineBreak/><Run Text="3. Add salt and pepper to taste"/><LineBreak/><Run Text="4. Pour eggs into pan"/><LineBreak/><Run Text="5. Cook until eggs set"/><LineBreak/><Run Text="6. Using the spatula, flip the omelette"/><LineBreak/><Run Text="7. Spread cheese over the omelette"/><LineBreak/><Run Text="8. Cook for 3 minutes and fold"/><LineBreak/><Run Text="9. Serve immediately"/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="ingredients" HorizontalAlignment="Left"  TextWrapping="Wrap" VerticalAlignment="Top" Height="253" Width="198" Margin="193,137,0,0"><Run Text="Ingredients" TextDecorations="Underline"/><LineBreak/><Run Text="- 4 large eggs"/><LineBreak/><Run Text="- 1 tbsp olive oil"/><LineBreak/><Run Text="- 100 grams cheddar cheese"/><LineBreak/><Run Text="- pinch salt"/><LineBreak/><Run Text="- pinch pepper"/></TextBlock>
+            <TextBlock x:Name="tools" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Height="253" Width="198" Margin="0,137,0,0"><Run Text="Tools" TextDecorations="Underline"/><Run Text="&#xA;- 1 cup&#xA;- 1 fork&#xA;- 1 medium pan"/><LineBreak/><Run Text="- 1 spatula"/></TextBlock>
+            <TextBox x:Name="recipeInfo" HorizontalAlignment="Left" Height="100" Margin="193,10,0,0" TextWrapping="Wrap" Text="French Omelette &#xA;&#xA;Cooking time: 15 minutes&#xA;1 serving&#xA;&#xA;Categories: Easy, breakfast, eggs, vegetarian" VerticalAlignment="Top" Width="502"/>
+            <Image x:Name="recipeImage" HorizontalAlignment="Left" Height="100" Margin="93,10,0,0" VerticalAlignment="Top" Width="100" Source="Resources/frenchomelet.png"/>
+            <Button x:Name="startButton" Content="Start cooking!" HorizontalAlignment="Left" Margin="504,34,0,0" VerticalAlignment="Top" Width="124" Height="46" Click="Button_Click" Background="LimeGreen"/>
+
+        </Grid>
+        <local:Stepper x:Name="step" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="328" Margin="98,34,0,0" Grid.RowSpan="3" VerticalAlignment="Top" Width="580" Visibility="Hidden"/>
+
+    </Grid>
+</Window>

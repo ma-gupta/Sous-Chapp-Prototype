@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="SousChapp.DiffFilter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SousChapp"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Margin="70" BorderThickness="2" Background="Black" >
+        <Grid Background="White" Name="Checkbox_grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="357*"/>
+                <ColumnDefinition Width="299*"/>
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="Beginner" Content="Beginner" HorizontalAlignment="Left" Margin="140,90,0,0" VerticalAlignment="Top" FontSize="14"/>
+            <CheckBox x:Name="Easy"  Content="Easy" HorizontalAlignment="Left" Margin="140,140,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="-0.827,1.918"/>
+            <CheckBox x:Name="Hard"  Content="Hard" HorizontalAlignment="Left" Margin="3.077,90,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="-0.827,1.918" Grid.Column="1"/>
+            <CheckBox x:Name="Medium"  Content="Medium" HorizontalAlignment="Left" Margin="140,190,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="-0.827,1.918"/>
+            <CheckBox x:Name="Challenging"  Content="Challenging" HorizontalAlignment="Left" Margin="3.077,140,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="-0.827,1.918" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="220,90,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="220,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="240,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="220,190,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="8.45,0.889"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="240,190,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="14.477,0.602"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="260,190,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="103.077,90,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.701,0.563" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="123.077,90,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="143.077,90,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="163.077,90,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="103.077,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="123.077,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="143.077,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="163.077,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Image HorizontalAlignment="Left" Height="20" Margin="183.077,140,0,0" VerticalAlignment="Top" Width="20" Source="Resources/star.png" RenderTransformOrigin="1.356,0.448" Grid.Column="1"/>
+            <Rectangle HorizontalAlignment="Left" Height="674" Stroke="Black" VerticalAlignment="Top" Width="30" Margin="321,-322,0,-46" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#fd9f84" Offset="1"/>
+                        <GradientStop Color="#FFDC4040"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Label Content="Search by Difficulty" HorizontalAlignment="Center" VerticalAlignment="Top" Width="176" Height="35" FontSize="20" FontFamily="Corbel" BorderBrush="Black" FontWeight="Bold" Grid.ColumnSpan="2" Margin="260,0,220,0"/>
+            <Button x:Name="CancelBtn"  Content="Cancel" HorizontalAlignment="Left" Height="24" Margin="153,256,0,0" VerticalAlignment="Top" Width="116" Background="IndianRed" Click="CancelBtn_Click"/>
+            <Button x:Name="submitBtn" Content="Submit" HorizontalAlignment="Left" Height="24" Margin="19,256,0,0" VerticalAlignment="Top" Width="116" Click="submitBtn_Click" Grid.Column="1"/>
+            <Button x:Name="resetBtn" Content="Reset" HorizontalAlignment="Left" Height="24" Margin="173,44,0,0" VerticalAlignment="Top" Width="116" Background="LightBlue" Click="resetBtn_Click" Grid.Column="1"/>
+
+        </Grid>
+    </Border>
+</UserControl>
