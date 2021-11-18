@@ -1,6 +1,6 @@
 # Sous Chapp
 
-This is a vertical protoype of an app that acts as a recipe database which can instruct a user step-by-step through recipes. It was created as part of a group project using C# 
+This is a vertical protoype of an app that acts as a recipe database which can instruct a user step-by-step through recipes. It was created witihin a group using C# 
 and utilizing methodology of user-centered system design, as part of a term project.
 
 ## Features
